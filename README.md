@@ -24,14 +24,14 @@ class Info(PluginInfo):
     self.secrets_help_texts = ["A description about Secret 1", "A description about Secret 2"]
 
 def encode(**kwargs):
-  data = kwargs[data]
+  data = kwargs["data"]
   secrets = kwargs["secrets"]
   ...
   result = "Encoding works!"
   return result
 
 def decode(**kwargs):
-  data = kwargs[data]
+  data = kwargs["data"]
   secrets = kwargs["secrets"]
   ...
   result = "Decoding works!"
