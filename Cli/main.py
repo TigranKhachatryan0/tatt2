@@ -26,8 +26,12 @@ def run_plugin(plugin):
             continue
     try:
         text = input("Enter the text to be encoded/decoded: ")
+        secrets = []
+        for i in range(0, plugin.Info().secrets_needed):
+            print(f"{get_secret_label(plugin.Info().secrets_labels, i)}\n====================\n{get_secret_description(plugin.Info().secrets_help_texts, i)}\n====================")
+            secrets.append(input(">> "))
         try:
-            print("Output: " + process(data=text))
+            print("Output: " + process(data=text, secrets=secrets))
         except Exception as e:
             print(f"Error: {e}")
         choice = input("Do you want to continue? (y/n): ").lower()
@@ -40,6 +44,18 @@ def run_plugin(plugin):
     except KeyboardInterrupt:
         print("\nExiting...")
         sys.exit()
+
+def get_secret_label(secrets_labels, index):
+    if len(secrets_labels) > index:
+        return secrets_labels[index]
+    else:
+        return f"Secret {index}"
+
+def get_secret_description(secrets_descriptions, index):
+    if len(secrets_descriptions) > index:
+        return secrets_descriptions[index]
+    else:
+        return "<No description>"
 
 def plugin_selection():
     while True:
