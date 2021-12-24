@@ -43,7 +43,7 @@ class Window:
 		sb.config(command=self.plugins_listbox.yview)
 		self.plugins_listbox.config(yscrollcommand=sb.set)
 		# Warn user about beta version
-		self.create_msgbox("Warning", "This app is still beta!\nIt is not recommended to use it on a production system.\n\nKNOWN BUGS:\n* Scrollbar does not work properly in encode/decode screen.")
+		self.create_msgbox("Warning", "This app is still beta!\n\nKNOWN BUGS:\n* Scrollbar does not work properly in encode/decode screen.")
 		# Wait for user to select a plugin
 		self.plugins_listbox.bind("<<ListboxSelect>>", self.plugin_selected)
 	def create_copy_window(self, parent, input_textbox, output_textbox):
