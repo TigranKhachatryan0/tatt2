@@ -27,14 +27,14 @@ def encode(**kwargs):
   data = kwargs[data]
   secrets = kwargs[secrets]
   ...
-  result = str()
+  result = "Encoding works!"
   return result
 
 def decode(**kwargs):
   data = kwargs[data]
   secrets = kwargs[secrets]
   ...
-  result = str()
+  result = "Decoding works!"
   return result
 
 if __name__ == '__main__':
