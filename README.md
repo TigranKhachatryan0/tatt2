@@ -25,14 +25,14 @@ class Info(PluginInfo):
 
 def encode(**kwargs):
   data = kwargs[data]
-  secrets = kwargs[secrets]
+  secrets = kwargs["secrets"]
   ...
   result = "Encoding works!"
   return result
 
 def decode(**kwargs):
   data = kwargs[data]
-  secrets = kwargs[secrets]
+  secrets = kwargs["secrets"]
   ...
   result = "Decoding works!"
   return result
