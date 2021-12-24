@@ -11,6 +11,9 @@ for i in os.listdir():
 		exec(f"import {i[:-3]}")  # Sorry.
 		plugins.append(eval(i[:-3]))
 
+def get_secret_amount(amount):
+    return amount if amount else 0
+
 def run_plugin(plugin):
     while True:
         print("Do you want to encode or decode?")
@@ -27,7 +30,7 @@ def run_plugin(plugin):
     try:
         text = input("Enter the text to be encoded/decoded: ")
         secrets = []
-        for i in range(0, plugin.Info().secrets_needed):
+        for i in range(0, get_secret_amount(plugin.Info().secrets_needed)):
             print(f"{get_secret_label(plugin.Info().secrets_labels, i)}\n====================\n{get_secret_description(plugin.Info().secrets_help_texts, i)}\n====================")
             secrets.append(input(">> "))
         try:
