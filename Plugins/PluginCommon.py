@@ -3,7 +3,7 @@ import argparse
 class PluginInfo:
     name               = "Unidentified Plugin"
     description        = "<No description>"
-    secrets_required   = None
+    secrets_needed     = None
     secrets_labels     = []
     secrets_help_texts = []
 
