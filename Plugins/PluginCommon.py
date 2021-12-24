@@ -1,12 +1,11 @@
 import argparse
 
 class PluginInfo:
-    def __init__(self):
-        self.name               = "Unidentified Plugin"
-        self.description        = "<No description>"
-        self.secrets_required   = None
-        self.secrets_labels     = []
-        self.secrets_help_texts = []
+    self.name               = "Unidentified Plugin"
+    self.description        = "<No description>"
+    self.secrets_required   = None
+    self.secrets_labels     = []
+    self.secrets_help_texts = []
 
 def encode(**kwargs):
     return "Not implemented"
