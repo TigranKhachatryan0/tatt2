@@ -18,7 +18,7 @@ def encode(**kwargs):
 		if letter.upper() in alphabet_upper:
 			letter_index = alphabet_upper.index(letter.upper())
 			letter_index += 13
-			if letter_index > 26:
+			if letter_index >= 26:
 				letter_index -= 26
 			if letter.upper() == letter:
 				ret += alphabet_upper[letter_index]
