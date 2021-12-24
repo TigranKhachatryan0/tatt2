@@ -1,7 +1,7 @@
 # tatt2
 TATT is a text encoding/decoding tool
 
-# Do not use CLI yet if the plugin needs secrets
+### Do not use CLI yet if the plugin needs secrets
 
 You don't need to install it anywhere.
 Just open the respective `main.py` file which can be
