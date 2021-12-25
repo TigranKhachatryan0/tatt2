@@ -21,10 +21,8 @@ def run_plugin(plugin):
             choice = input("(E)ncode or (D)ecode: ").lower()
             if choice == "e":
                 process = plugin.encode
-                break
             elif choice == "d":
                 process = plugin.decode
-                break
             else:
                 print("error: Invalid choice.")
                 continue
