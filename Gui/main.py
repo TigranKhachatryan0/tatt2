@@ -126,7 +126,7 @@ class Window:
 				output_textbox.config(state=NORMAL)
 				output_textbox.delete(1.0, END)
 				try:
-					output_textbox.insert(END, plugin.encode(data=input_textbox.get("1.0", END).strip(), secrets=secrets))
+					output_textbox.insert(END, str(plugin.encode(data=input_textbox.get("1.0", END).strip(), secrets=secrets)))
 				except Exception as e:
 					self.create_msgbox("Error", str(e))
 					output_textbox.insert(END, "Error: "+str(e))
@@ -135,7 +135,7 @@ class Window:
 				output_textbox.config(state=NORMAL)
 				output_textbox.delete(1.0, END)
 				try:
-					output_textbox.insert(END, plugin.decode(data=input_textbox.get("1.0", END).strip(), secrets=secrets))
+					output_textbox.insert(END, str(plugin.decode(data=input_textbox.get("1.0", END).strip(), secrets=secrets)))
 				except Exception as e:
 					self.create_msgbox("Error", str(e))
 					output_textbox.insert(END, "Error: "+str(e))
