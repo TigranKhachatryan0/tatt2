@@ -7,11 +7,15 @@ class PluginInfo:
     secrets_labels     = []
     secrets_help_texts = []
 
+class Info(PluginInfo):
+    def __init__(self):
+        pass
+
 def encode(**kwargs):
-    return "Not implemented"
+    raise NotImplementedError("This plugin does not support encoding")
 
 def decode(**kwargs):
-    return "Not implemented"
+    raise NotImplementedError("This plugin does not support decoding")
 
 def CliHandler(plugin_info, encode_function, decode_function):
     args = argparse.ArgumentParser(description=plugin_info.description)
