@@ -9,6 +9,7 @@ Do not move the `main.py` files, because they always import
 plugins from the `../Plugins/` directory
 
 Plugins' `encode()` and `decode()` functions need to **ALWAYS return strings (str)**
+
 Example plugin:
 
 ```py
