@@ -15,38 +15,38 @@ def get_secret_amount(amount):
     return amount if amount else 0
 
 def run_plugin(plugin):
-    while True:
-        print("Do you want to encode or decode?")
-        choice = input("(E)ncode or (D)ecode: ").lower()
-        if choice == "e":
-            process = plugin.encode
-            break
-        elif choice == "d":
-            process = plugin.decode
-            break
-        else:
-            print("error: Invalid choice.")
-            continue
     try:
-        text = input("Enter the text to be encoded/decoded: ")
-        secrets = []
-        for i in range(0, get_secret_amount(plugin.Info().secrets_needed)):
-            print(f"{get_secret_label(plugin.Info().secrets_labels, i)}\n====================\n{get_secret_description(plugin.Info().secrets_help_texts, i)}\n====================")
-            secrets.append(input(">> "))
-        try:
-            print("Output: " + process(data=text, secrets=secrets))
-        except Exception as e:
-            print(f"Error: {e}")
-        choice = input("Do you want to continue? (y/n): ").lower()
-        if choice == "y":
-            run_plugin(plugin)
-        elif choice == "n":
-            return
-        else:
-            print("error: Invalid choice.")
+        while True:
+            print("Do you want to encode or decode?")
+            choice = input("(E)ncode or (D)ecode: ").lower()
+            if choice == "e":
+                process = plugin.encode
+                break
+            elif choice == "d":
+                process = plugin.decode
+                break
+            else:
+                print("error: Invalid choice.")
+                continue
+            text = input("Enter the text to be encoded/decoded: ")
+            secrets = []
+            for i in range(0, get_secret_amount(plugin.Info().secrets_needed)):
+                print(f"{get_secret_label(plugin.Info().secrets_labels, i)}\n====================\n{get_secret_description(plugin.Info().secrets_help_texts, i)}\n====================")
+                secrets.append(input(">> "))
+            try:
+                print("\nOutput: " + str(process(data=text, secrets=secrets))+"\n")
+            except Exception as e:
+                print(f"\nError: {e}\n")
+            choice = input(f"Do you want to continue using {plugin.Info().name}? (y/n): ").lower()
+            if choice == "y":
+	        continue
+            elif choice == "n":
+                return
+            else:
+                print("error: Invalid choice.")
     except KeyboardInterrupt:
         print("\nExiting...")
-        sys.exit()
+        return
 
 def get_secret_label(secrets_labels, index):
     if len(secrets_labels) > index:
@@ -81,13 +81,5 @@ def plugin_selection():
             print("error: Invalid selection.")
             continue
         run_plugin(plugins[selection])
-        should_exit = input("Do you want to exit? (y/n): ").lower()
-        if should_exit == "y":
-            break
-        elif should_exit == "n":
-            continue
-        else:
-            print("error: Invalid choice.")
-            continue
 
 plugin_selection() # Run the plugin selection
