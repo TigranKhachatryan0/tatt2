@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from PluginCommon import PluginInfo, CliHandler
-import base64
 
 class Info(PluginInfo):
 	def __init__(self):
